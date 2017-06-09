@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>347</width>
+    <width>359</width>
     <height>265</height>
    </rect>
   </property>
@@ -15,6 +15,13 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
+    <item row="3" column="0">
+     <widget class="QPushButton" name="pushButtonGestionPersonnel">
+      <property name="text">
+       <string>Gestion du personnel</string>
+      </property>
+     </widget>
+    </item>
     <item row="0" column="0">
      <widget class="QPushButton" name="pushButtonGestionMagasin">
       <property name="text">
@@ -23,9 +30,16 @@
      </widget>
     </item>
     <item row="1" column="0">
-     <widget class="QPushButton" name="pushButtonGestionPersonnel">
+     <widget class="QPushButton" name="pushButton">
       <property name="text">
-       <string>Gestion du personnel</string>
+       <string>Gestion des points de ventes</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QPushButton" name="pushButtonTableauDeBord">
+      <property name="text">
+       <string>Tableau de bord</string>
       </property>
      </widget>
     </item>
@@ -36,7 +50,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>347</width>
+     <width>359</width>
      <height>29</height>
     </rect>
    </property>

@@ -26,6 +26,10 @@ private slots:
 
     void on_pushButtonGestionPersonnel_clicked();
 
+    void on_pushButton_clicked();
+
+    void on_pushButtonTableauDeBord_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

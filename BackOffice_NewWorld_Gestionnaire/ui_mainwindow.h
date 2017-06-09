@@ -31,8 +31,10 @@ public:
     QAction *action_Quitter;
     QWidget *centralWidget;
     QGridLayout *gridLayout;
-    QPushButton *pushButtonGestionMagasin;
     QPushButton *pushButtonGestionPersonnel;
+    QPushButton *pushButtonGestionMagasin;
+    QPushButton *pushButton;
+    QPushButton *pushButtonTableauDeBord;
     QMenuBar *menuBar;
     QMenu *menu_Fichier;
     QToolBar *mainToolBar;
@@ -42,7 +44,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(347, 265);
+        MainWindow->resize(359, 265);
         action_Quitter = new QAction(MainWindow);
         action_Quitter->setObjectName(QStringLiteral("action_Quitter"));
         centralWidget = new QWidget(MainWindow);
@@ -51,20 +53,30 @@ public:
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        pushButtonGestionPersonnel = new QPushButton(centralWidget);
+        pushButtonGestionPersonnel->setObjectName(QStringLiteral("pushButtonGestionPersonnel"));
+
+        gridLayout->addWidget(pushButtonGestionPersonnel, 3, 0, 1, 1);
+
         pushButtonGestionMagasin = new QPushButton(centralWidget);
         pushButtonGestionMagasin->setObjectName(QStringLiteral("pushButtonGestionMagasin"));
 
         gridLayout->addWidget(pushButtonGestionMagasin, 0, 0, 1, 1);
 
-        pushButtonGestionPersonnel = new QPushButton(centralWidget);
-        pushButtonGestionPersonnel->setObjectName(QStringLiteral("pushButtonGestionPersonnel"));
+        pushButton = new QPushButton(centralWidget);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
 
-        gridLayout->addWidget(pushButtonGestionPersonnel, 1, 0, 1, 1);
+        gridLayout->addWidget(pushButton, 1, 0, 1, 1);
+
+        pushButtonTableauDeBord = new QPushButton(centralWidget);
+        pushButtonTableauDeBord->setObjectName(QStringLiteral("pushButtonTableauDeBord"));
+
+        gridLayout->addWidget(pushButtonTableauDeBord, 4, 0, 1, 1);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 347, 29));
+        menuBar->setGeometry(QRect(0, 0, 359, 29));
         menu_Fichier = new QMenu(menuBar);
         menu_Fichier->setObjectName(QStringLiteral("menu_Fichier"));
         MainWindow->setMenuBar(menuBar);
@@ -87,8 +99,10 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Menu", 0));
         action_Quitter->setText(QApplication::translate("MainWindow", "&Quitter", 0));
-        pushButtonGestionMagasin->setText(QApplication::translate("MainWindow", "Gestion types produits / produits / rayons / lots", 0));
         pushButtonGestionPersonnel->setText(QApplication::translate("MainWindow", "Gestion du personnel", 0));
+        pushButtonGestionMagasin->setText(QApplication::translate("MainWindow", "Gestion types produits / produits / rayons / lots", 0));
+        pushButton->setText(QApplication::translate("MainWindow", "Gestion des points de ventes", 0));
+        pushButtonTableauDeBord->setText(QApplication::translate("MainWindow", "Tableau de bord", 0));
         menu_Fichier->setTitle(QApplication::translate("MainWindow", "&Fichier", 0));
     } // retranslateUi
 

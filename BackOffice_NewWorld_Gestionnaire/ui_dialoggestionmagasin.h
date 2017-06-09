@@ -41,10 +41,11 @@ public:
     QPushButton *pushButtonAjoutRayon;
     QPushButton *pushButtonSupprRayon;
     QWidget *typesProduits;
-    QGridLayout *gridLayout_3;
+    QGridLayout *gridLayout_5;
     QTableWidget *tableWidgetTypeProduit;
-    QHBoxLayout *horizontalLayout_2;
+    QGridLayout *gridLayout_3;
     QLineEdit *lineEditAjoutTypeProduit;
+    QComboBox *comboBoxTypeRayon;
     QPushButton *pushButtonAjoutTypeProduit;
     QPushButton *pushButtonSupprTypeProduit;
     QWidget *Produit;
@@ -52,7 +53,7 @@ public:
     QTableWidget *tableWidgetProduit;
     QHBoxLayout *horizontalLayout_3;
     QLineEdit *lineEditAjoutProduit;
-    QComboBox *comboBoxChoixType;
+    QComboBox *comboBoxChoixTypeProduit;
     QPushButton *pushButtonAjoutProduit;
     QPushButton *pushButtonSupprProduit;
 
@@ -60,7 +61,7 @@ public:
     {
         if (DialogGestionMagasin->objectName().isEmpty())
             DialogGestionMagasin->setObjectName(QStringLiteral("DialogGestionMagasin"));
-        DialogGestionMagasin->resize(600, 342);
+        DialogGestionMagasin->resize(708, 342);
         gridLayout = new QGridLayout(DialogGestionMagasin);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         buttonBox = new QDialogButtonBox(DialogGestionMagasin);
@@ -120,8 +121,8 @@ public:
         tabWidget->addTab(Rayons, QString());
         typesProduits = new QWidget();
         typesProduits->setObjectName(QStringLiteral("typesProduits"));
-        gridLayout_3 = new QGridLayout(typesProduits);
-        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
+        gridLayout_5 = new QGridLayout(typesProduits);
+        gridLayout_5->setObjectName(QStringLiteral("gridLayout_5"));
         tableWidgetTypeProduit = new QTableWidget(typesProduits);
         if (tableWidgetTypeProduit->columnCount() < 2)
             tableWidgetTypeProduit->setColumnCount(2);
@@ -132,27 +133,32 @@ public:
         tableWidgetTypeProduit->setObjectName(QStringLiteral("tableWidgetTypeProduit"));
         tableWidgetTypeProduit->horizontalHeader()->setStretchLastSection(true);
 
-        gridLayout_3->addWidget(tableWidgetTypeProduit, 0, 0, 1, 1);
+        gridLayout_5->addWidget(tableWidgetTypeProduit, 0, 0, 1, 1);
 
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        gridLayout_3 = new QGridLayout();
+        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
         lineEditAjoutTypeProduit = new QLineEdit(typesProduits);
         lineEditAjoutTypeProduit->setObjectName(QStringLiteral("lineEditAjoutTypeProduit"));
 
-        horizontalLayout_2->addWidget(lineEditAjoutTypeProduit);
+        gridLayout_3->addWidget(lineEditAjoutTypeProduit, 0, 0, 1, 1);
+
+        comboBoxTypeRayon = new QComboBox(typesProduits);
+        comboBoxTypeRayon->setObjectName(QStringLiteral("comboBoxTypeRayon"));
+
+        gridLayout_3->addWidget(comboBoxTypeRayon, 0, 1, 1, 1);
 
         pushButtonAjoutTypeProduit = new QPushButton(typesProduits);
         pushButtonAjoutTypeProduit->setObjectName(QStringLiteral("pushButtonAjoutTypeProduit"));
 
-        horizontalLayout_2->addWidget(pushButtonAjoutTypeProduit);
+        gridLayout_3->addWidget(pushButtonAjoutTypeProduit, 0, 2, 1, 1);
 
         pushButtonSupprTypeProduit = new QPushButton(typesProduits);
         pushButtonSupprTypeProduit->setObjectName(QStringLiteral("pushButtonSupprTypeProduit"));
 
-        horizontalLayout_2->addWidget(pushButtonSupprTypeProduit);
+        gridLayout_3->addWidget(pushButtonSupprTypeProduit, 0, 3, 1, 1);
 
 
-        gridLayout_3->addLayout(horizontalLayout_2, 1, 0, 1, 1);
+        gridLayout_5->addLayout(gridLayout_3, 1, 0, 1, 1);
 
         tabWidget->addTab(typesProduits, QString());
         Produit = new QWidget();
@@ -178,10 +184,10 @@ public:
 
         horizontalLayout_3->addWidget(lineEditAjoutProduit);
 
-        comboBoxChoixType = new QComboBox(Produit);
-        comboBoxChoixType->setObjectName(QStringLiteral("comboBoxChoixType"));
+        comboBoxChoixTypeProduit = new QComboBox(Produit);
+        comboBoxChoixTypeProduit->setObjectName(QStringLiteral("comboBoxChoixTypeProduit"));
 
-        horizontalLayout_3->addWidget(comboBoxChoixType);
+        horizontalLayout_3->addWidget(comboBoxChoixTypeProduit);
 
         pushButtonAjoutProduit = new QPushButton(Produit);
         pushButtonAjoutProduit->setObjectName(QStringLiteral("pushButtonAjoutProduit"));
@@ -213,7 +219,7 @@ public:
 
     void retranslateUi(QDialog *DialogGestionMagasin)
     {
-        DialogGestionMagasin->setWindowTitle(QApplication::translate("DialogGestionMagasin", "Gestion types produits / produits / rayons / lots", 0));
+        DialogGestionMagasin->setWindowTitle(QApplication::translate("DialogGestionMagasin", "Gestion types produits / produits / rayons ", 0));
         QTableWidgetItem *___qtablewidgetitem = tableWidgetRayon->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("DialogGestionMagasin", "Libell\303\251", 0));
         pushButtonAjoutRayon->setText(QApplication::translate("DialogGestionMagasin", "Ajouter un rayon", 0));

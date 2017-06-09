@@ -49,19 +49,27 @@ SOURCES       = main.cpp \
 		mainwindow.cpp \
 		dialogconnect.cpp \
 		dialoggestionmagasin.cpp \
-		dialoggestionpersonnel.cpp moc_mainwindow.cpp \
+		dialoggestionpersonnel.cpp \
+		dialoggestionpointdevente.cpp \
+		dialogtableaudebord.cpp moc_mainwindow.cpp \
 		moc_dialogconnect.cpp \
 		moc_dialoggestionmagasin.cpp \
-		moc_dialoggestionpersonnel.cpp
+		moc_dialoggestionpersonnel.cpp \
+		moc_dialoggestionpointdevente.cpp \
+		moc_dialogtableaudebord.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		dialogconnect.o \
 		dialoggestionmagasin.o \
 		dialoggestionpersonnel.o \
+		dialoggestionpointdevente.o \
+		dialogtableaudebord.o \
 		moc_mainwindow.o \
 		moc_dialogconnect.o \
 		moc_dialoggestionmagasin.o \
-		moc_dialoggestionpersonnel.o
+		moc_dialoggestionpersonnel.o \
+		moc_dialoggestionpointdevente.o \
+		moc_dialogtableaudebord.o
 DIST          = /usr/lib/i386-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/i386-linux-gnu/qt5/mkspecs/common/shell-unix.conf \
 		/usr/lib/i386-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -126,7 +134,9 @@ DIST          = /usr/lib/i386-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		mainwindow.cpp \
 		dialogconnect.cpp \
 		dialoggestionmagasin.cpp \
-		dialoggestionpersonnel.cpp
+		dialoggestionpersonnel.cpp \
+		dialoggestionpointdevente.cpp \
+		dialogtableaudebord.cpp
 QMAKE_TARGET  = BackOffice_NewWorld_Gestionnaire
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = BackOffice_NewWorld_Gestionnaire
@@ -156,7 +166,7 @@ first: all
 
 all: Makefile $(TARGET)
 
-$(TARGET): ui_mainwindow.h ui_dialogconnect.h ui_dialoggestionmagasin.h ui_dialoggestionpersonnel.h $(OBJECTS)  
+$(TARGET): ui_mainwindow.h ui_dialogconnect.h ui_dialoggestionmagasin.h ui_dialoggestionpersonnel.h ui_dialoggestionpointdevente.h ui_dialogtableaudebord.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: BackOffice_NewWorld_Gestionnaire.pro /usr/lib/i386-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf /usr/lib/i386-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -297,7 +307,7 @@ qmake_all: FORCE
 
 dist: 
 	@test -d .tmp/BackOffice_NewWorld_Gestionnaire1.0.0 || mkdir -p .tmp/BackOffice_NewWorld_Gestionnaire1.0.0
-	$(COPY_FILE) --parents $(DIST) .tmp/BackOffice_NewWorld_Gestionnaire1.0.0/ && $(COPY_FILE) --parents mainwindow.h dialogconnect.h dialoggestionmagasin.h dialoggestionpersonnel.h .tmp/BackOffice_NewWorld_Gestionnaire1.0.0/ && $(COPY_FILE) --parents main.cpp mainwindow.cpp dialogconnect.cpp dialoggestionmagasin.cpp dialoggestionpersonnel.cpp .tmp/BackOffice_NewWorld_Gestionnaire1.0.0/ && $(COPY_FILE) --parents mainwindow.ui dialogconnect.ui dialoggestionmagasin.ui dialoggestionpersonnel.ui .tmp/BackOffice_NewWorld_Gestionnaire1.0.0/ && (cd `dirname .tmp/BackOffice_NewWorld_Gestionnaire1.0.0` && $(TAR) BackOffice_NewWorld_Gestionnaire1.0.0.tar BackOffice_NewWorld_Gestionnaire1.0.0 && $(COMPRESS) BackOffice_NewWorld_Gestionnaire1.0.0.tar) && $(MOVE) `dirname .tmp/BackOffice_NewWorld_Gestionnaire1.0.0`/BackOffice_NewWorld_Gestionnaire1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/BackOffice_NewWorld_Gestionnaire1.0.0
+	$(COPY_FILE) --parents $(DIST) .tmp/BackOffice_NewWorld_Gestionnaire1.0.0/ && $(COPY_FILE) --parents mainwindow.h dialogconnect.h dialoggestionmagasin.h dialoggestionpersonnel.h dialoggestionpointdevente.h dialogtableaudebord.h .tmp/BackOffice_NewWorld_Gestionnaire1.0.0/ && $(COPY_FILE) --parents main.cpp mainwindow.cpp dialogconnect.cpp dialoggestionmagasin.cpp dialoggestionpersonnel.cpp dialoggestionpointdevente.cpp dialogtableaudebord.cpp .tmp/BackOffice_NewWorld_Gestionnaire1.0.0/ && $(COPY_FILE) --parents mainwindow.ui dialogconnect.ui dialoggestionmagasin.ui dialoggestionpersonnel.ui dialoggestionpointdevente.ui dialogtableaudebord.ui .tmp/BackOffice_NewWorld_Gestionnaire1.0.0/ && (cd `dirname .tmp/BackOffice_NewWorld_Gestionnaire1.0.0` && $(TAR) BackOffice_NewWorld_Gestionnaire1.0.0.tar BackOffice_NewWorld_Gestionnaire1.0.0 && $(COMPRESS) BackOffice_NewWorld_Gestionnaire1.0.0.tar) && $(MOVE) `dirname .tmp/BackOffice_NewWorld_Gestionnaire1.0.0`/BackOffice_NewWorld_Gestionnaire1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/BackOffice_NewWorld_Gestionnaire1.0.0
 
 
 clean:compiler_clean 
@@ -320,9 +330,9 @@ check: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_dialogconnect.cpp moc_dialoggestionmagasin.cpp moc_dialoggestionpersonnel.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_dialogconnect.cpp moc_dialoggestionmagasin.cpp moc_dialoggestionpersonnel.cpp moc_dialoggestionpointdevente.cpp moc_dialogtableaudebord.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_dialogconnect.cpp moc_dialoggestionmagasin.cpp moc_dialoggestionpersonnel.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_dialogconnect.cpp moc_dialoggestionmagasin.cpp moc_dialoggestionpersonnel.cpp moc_dialoggestionpointdevente.cpp moc_dialogtableaudebord.cpp
 moc_mainwindow.cpp: mainwindow.h
 	/usr/lib/i386-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/i386-linux-gnu/qt5/mkspecs/linux-g++ -I/home/tnour1/Documents/SLAM4/PPE/BackOffice_NewWorld_Gestionnaire -I/usr/include/i386-linux-gnu/qt5 -I/usr/include/i386-linux-gnu/qt5/QtWidgets -I/usr/include/i386-linux-gnu/qt5/QtSql -I/usr/include/i386-linux-gnu/qt5/QtGui -I/usr/include/i386-linux-gnu/qt5/QtCore -I/usr/include/c++/4.7 -I/usr/include/c++/4.7/i486-linux-gnu -I/usr/include/c++/4.7/backward -I/usr/lib/gcc/i486-linux-gnu/4.7/include -I/usr/local/include -I/usr/lib/gcc/i486-linux-gnu/4.7/include-fixed -I/usr/include/i386-linux-gnu -I/usr/include mainwindow.h -o moc_mainwindow.cpp
 
@@ -335,11 +345,17 @@ moc_dialoggestionmagasin.cpp: dialoggestionmagasin.h
 moc_dialoggestionpersonnel.cpp: dialoggestionpersonnel.h
 	/usr/lib/i386-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/i386-linux-gnu/qt5/mkspecs/linux-g++ -I/home/tnour1/Documents/SLAM4/PPE/BackOffice_NewWorld_Gestionnaire -I/usr/include/i386-linux-gnu/qt5 -I/usr/include/i386-linux-gnu/qt5/QtWidgets -I/usr/include/i386-linux-gnu/qt5/QtSql -I/usr/include/i386-linux-gnu/qt5/QtGui -I/usr/include/i386-linux-gnu/qt5/QtCore -I/usr/include/c++/4.7 -I/usr/include/c++/4.7/i486-linux-gnu -I/usr/include/c++/4.7/backward -I/usr/lib/gcc/i486-linux-gnu/4.7/include -I/usr/local/include -I/usr/lib/gcc/i486-linux-gnu/4.7/include-fixed -I/usr/include/i386-linux-gnu -I/usr/include dialoggestionpersonnel.h -o moc_dialoggestionpersonnel.cpp
 
+moc_dialoggestionpointdevente.cpp: dialoggestionpointdevente.h
+	/usr/lib/i386-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/i386-linux-gnu/qt5/mkspecs/linux-g++ -I/home/tnour1/Documents/SLAM4/PPE/BackOffice_NewWorld_Gestionnaire -I/usr/include/i386-linux-gnu/qt5 -I/usr/include/i386-linux-gnu/qt5/QtWidgets -I/usr/include/i386-linux-gnu/qt5/QtSql -I/usr/include/i386-linux-gnu/qt5/QtGui -I/usr/include/i386-linux-gnu/qt5/QtCore -I/usr/include/c++/4.7 -I/usr/include/c++/4.7/i486-linux-gnu -I/usr/include/c++/4.7/backward -I/usr/lib/gcc/i486-linux-gnu/4.7/include -I/usr/local/include -I/usr/lib/gcc/i486-linux-gnu/4.7/include-fixed -I/usr/include/i386-linux-gnu -I/usr/include dialoggestionpointdevente.h -o moc_dialoggestionpointdevente.cpp
+
+moc_dialogtableaudebord.cpp: dialogtableaudebord.h
+	/usr/lib/i386-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/i386-linux-gnu/qt5/mkspecs/linux-g++ -I/home/tnour1/Documents/SLAM4/PPE/BackOffice_NewWorld_Gestionnaire -I/usr/include/i386-linux-gnu/qt5 -I/usr/include/i386-linux-gnu/qt5/QtWidgets -I/usr/include/i386-linux-gnu/qt5/QtSql -I/usr/include/i386-linux-gnu/qt5/QtGui -I/usr/include/i386-linux-gnu/qt5/QtCore -I/usr/include/c++/4.7 -I/usr/include/c++/4.7/i486-linux-gnu -I/usr/include/c++/4.7/backward -I/usr/lib/gcc/i486-linux-gnu/4.7/include -I/usr/local/include -I/usr/lib/gcc/i486-linux-gnu/4.7/include-fixed -I/usr/include/i386-linux-gnu -I/usr/include dialogtableaudebord.h -o moc_dialogtableaudebord.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_dialogconnect.h ui_dialoggestionmagasin.h ui_dialoggestionpersonnel.h
+compiler_uic_make_all: ui_mainwindow.h ui_dialogconnect.h ui_dialoggestionmagasin.h ui_dialoggestionpersonnel.h ui_dialoggestionpointdevente.h ui_dialogtableaudebord.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_dialogconnect.h ui_dialoggestionmagasin.h ui_dialoggestionpersonnel.h
+	-$(DEL_FILE) ui_mainwindow.h ui_dialogconnect.h ui_dialoggestionmagasin.h ui_dialoggestionpersonnel.h ui_dialoggestionpointdevente.h ui_dialogtableaudebord.h
 ui_mainwindow.h: mainwindow.ui
 	/usr/lib/i386-linux-gnu/qt5/bin/uic mainwindow.ui -o ui_mainwindow.h
 
@@ -352,6 +368,12 @@ ui_dialoggestionmagasin.h: dialoggestionmagasin.ui
 ui_dialoggestionpersonnel.h: dialoggestionpersonnel.ui
 	/usr/lib/i386-linux-gnu/qt5/bin/uic dialoggestionpersonnel.ui -o ui_dialoggestionpersonnel.h
 
+ui_dialoggestionpointdevente.h: dialoggestionpointdevente.ui
+	/usr/lib/i386-linux-gnu/qt5/bin/uic dialoggestionpointdevente.ui -o ui_dialoggestionpointdevente.h
+
+ui_dialogtableaudebord.h: dialogtableaudebord.ui
+	/usr/lib/i386-linux-gnu/qt5/bin/uic dialogtableaudebord.ui -o ui_dialogtableaudebord.h
+
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
 compiler_yacc_impl_make_all:
@@ -363,12 +385,16 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 ####### Compile
 
 main.o: main.cpp mainwindow.h \
-		dialogconnect.h
+		dialogconnect.h \
+		dialoggestionmagasin.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 mainwindow.o: mainwindow.cpp mainwindow.h \
 		ui_mainwindow.h \
-		dialoggestionmagasin.h
+		dialoggestionmagasin.h \
+		dialoggestionpersonnel.h \
+		dialoggestionpointdevente.h \
+		dialogtableaudebord.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
 dialogconnect.o: dialogconnect.cpp dialogconnect.h \
@@ -384,6 +410,14 @@ dialoggestionpersonnel.o: dialoggestionpersonnel.cpp dialoggestionpersonnel.h \
 		ui_dialoggestionpersonnel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dialoggestionpersonnel.o dialoggestionpersonnel.cpp
 
+dialoggestionpointdevente.o: dialoggestionpointdevente.cpp dialoggestionpointdevente.h \
+		ui_dialoggestionpointdevente.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dialoggestionpointdevente.o dialoggestionpointdevente.cpp
+
+dialogtableaudebord.o: dialogtableaudebord.cpp dialogtableaudebord.h \
+		ui_dialogtableaudebord.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dialogtableaudebord.o dialogtableaudebord.cpp
+
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
 
@@ -395,6 +429,12 @@ moc_dialoggestionmagasin.o: moc_dialoggestionmagasin.cpp
 
 moc_dialoggestionpersonnel.o: moc_dialoggestionpersonnel.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dialoggestionpersonnel.o moc_dialoggestionpersonnel.cpp
+
+moc_dialoggestionpointdevente.o: moc_dialoggestionpointdevente.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dialoggestionpointdevente.o moc_dialoggestionpointdevente.cpp
+
+moc_dialogtableaudebord.o: moc_dialogtableaudebord.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dialogtableaudebord.o moc_dialogtableaudebord.cpp
 
 ####### Install
 

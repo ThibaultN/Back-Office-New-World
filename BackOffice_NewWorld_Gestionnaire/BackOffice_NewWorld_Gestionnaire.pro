@@ -16,14 +16,20 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     dialogconnect.cpp \
     dialoggestionmagasin.cpp \
-    dialoggestionpersonnel.cpp
+    dialoggestionpersonnel.cpp \
+    dialoggestionpointdevente.cpp \
+    dialogtableaudebord.cpp
 
 HEADERS  += mainwindow.h \
     dialogconnect.h \
     dialoggestionmagasin.h \
-    dialoggestionpersonnel.h
+    dialoggestionpersonnel.h \
+    dialoggestionpointdevente.h \
+    dialogtableaudebord.h
 
 FORMS    += mainwindow.ui \
     dialogconnect.ui \
     dialoggestionmagasin.ui \
-    dialoggestionpersonnel.ui
+    dialoggestionpersonnel.ui \
+    dialoggestionpointdevente.ui \
+    dialogtableaudebord.ui

@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
+    <width>708</width>
     <height>342</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Gestion types produits / produits / rayons / lots</string>
+   <string>Gestion types produits / produits / rayons </string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="2" column="0">
@@ -109,7 +109,7 @@
       <attribute name="title">
        <string>Type de produit</string>
       </attribute>
-      <layout class="QGridLayout" name="gridLayout_3">
+      <layout class="QGridLayout" name="gridLayout_5">
        <item row="0" column="0">
         <widget class="QTableWidget" name="tableWidgetTypeProduit">
          <attribute name="horizontalHeaderStretchLastSection">
@@ -128,18 +128,21 @@
         </widget>
        </item>
        <item row="1" column="0">
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
+        <layout class="QGridLayout" name="gridLayout_3">
+         <item row="0" column="0">
           <widget class="QLineEdit" name="lineEditAjoutTypeProduit"/>
          </item>
-         <item>
+         <item row="0" column="1">
+          <widget class="QComboBox" name="comboBoxTypeRayon"/>
+         </item>
+         <item row="0" column="2">
           <widget class="QPushButton" name="pushButtonAjoutTypeProduit">
            <property name="text">
             <string>Ajouter un type de produit</string>
            </property>
           </widget>
          </item>
-         <item>
+         <item row="0" column="3">
           <widget class="QPushButton" name="pushButtonSupprTypeProduit">
            <property name="text">
             <string>Supprimer un type de produit</string>
@@ -178,7 +181,7 @@
           <widget class="QLineEdit" name="lineEditAjoutProduit"/>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBoxChoixType"/>
+          <widget class="QComboBox" name="comboBoxChoixTypeProduit"/>
          </item>
          <item>
           <widget class="QPushButton" name="pushButtonAjoutProduit">

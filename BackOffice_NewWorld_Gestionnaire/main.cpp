@@ -5,6 +5,7 @@
 #include <QTextCodec>
 #include "mainwindow.h"
 #include "dialogconnect.h"
+#include "dialoggestionmagasin.h"
 
 int main(int argc, char *argv[])
 {
@@ -19,6 +20,7 @@ int main(int argc, char *argv[])
         QString mdp = connect.getMdp();
         QSqlDatabase maBase = QSqlDatabase::addDatabase("QMYSQL");
         maBase.setHostName("localhost");
+        maBase.setDatabaseName("maBase");
         maBase.setUserName(login);
         maBase.setPassword(mdp);
         if(maBase.open())
